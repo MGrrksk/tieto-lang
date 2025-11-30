@@ -25,7 +25,7 @@ enum TokenType {
     TT_EQUAL,       // Operator `=`
     TT_DBLEQUAL,    // Operator `==`
     TT_NEQUAL,      // Operator `!=`
-    TT_GRATER,      // Operator `>`
+    TT_GREATER,     // Operator `>`
     TT_GTEQUAL,     // Operator `>=`
     TT_LESS,        // Operator `<`
     TT_LTEQUAL,     // Operator `<=`
