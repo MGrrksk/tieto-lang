@@ -35,10 +35,10 @@ class ExprVisitor {
 
 class LiteralExpr: public Expr {
     public:
-        // Value represented by the literal.
-        Value value;
+        // Type of the literal.
+        Token token;
         // Initializing constructor.
-        LiteralExpr(Value litValue): value(litValue) {}
+        LiteralExpr(Token litToken): token(litToken) {}
         // Method accepting visitor implementing `ExprVisitor`.
         void accept(ExprVisitor* visitor) {visitor->visitLiteralExpr(this);}
 };

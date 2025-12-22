@@ -14,7 +14,10 @@ Token Lexer::nextToken() {
     skipWhitespace();
     start = curr;
     // Handle end of file
-    if (isEOF()) return token(TT_EOF);
+    if (isEOF()) {
+        src = nullptr;
+        return token(TT_EOF);
+    }
     // Define token type based on the first character
     switch (next()) {
         case '(': return token(TT_LPAREN);
@@ -57,7 +60,7 @@ Token Lexer::nextToken() {
         case '>':
             // If there is `=` in front of `>`, then it is `>=`.
             if (nextIs('=')) return token(TT_GTEQUAL);
-            else return token(TT_GRATER);
+            else return token(TT_GREATER);
         case '<':
             // If there is `<` in front of `=`, then it is `<=`.
             if (nextIs('=')) return token(TT_LTEQUAL);
@@ -164,9 +167,5 @@ Token Lexer::token(TokenType type) {
     return {type, start, static_cast<unsigned int>(curr - start), line, column - static_cast<unsigned int>(curr - start)};
 }
 bool Lexer::isEOF() {
-    if (*curr == '\0') {
-        src = nullptr;
-        return true;
-    }
-    return false;
+    return *curr == '\0';
 }
