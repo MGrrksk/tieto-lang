@@ -1,5 +1,1 @@
-# Main function
-fn main(args: u8[]): bool {
-    i32[dyn] array = fib(10)
-    array |> stdout; return true
-}
+2 + 3 * -4
